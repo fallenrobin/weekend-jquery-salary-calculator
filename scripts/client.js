@@ -1,9 +1,13 @@
 $(readyNow);
 function readyNow() {
     $(`#addEmployeeBtn`).on(`click`, addEmployee);
+    $(`tbody`).on(`click`, '#deleteBtn', deleteEmployee);
+    //$(`#deleteBtn`).on(`click`, deleteEmployee); wrong!
+
 }
 
 let staff = [];
+let totalRunningCost = 0;
 
 
 function addEmployee() {
@@ -21,24 +25,59 @@ function addEmployee() {
         salary: salary
     }
     staff.push(empObject);
-    appendTable();
-    //research button ".data()"...to help update the salary?
 
+    $(`#employeeTable`).append(`
+            <tr>
+                <td>${firstName}</td>
+                <td>${lastName}</td>
+                <td>${empNumber}</td>
+                <td>${title}</td>
+                <td>${salary}</td>
+                <td>
+                <button id="deleteBtn"> Remove Employee </button>
+                </td>
+            </tr>
+            
+            `)
+    $(`input`).val('');
+    $(`#totalCost`).append(totalRunningCost += Number(salary));
+    warningRed();
+
+    //research button ".data()"...to help update the salary?
     // calc salary
 
 }
 
-function appendTable() {
-    for (let person of staff) {
-        $(`#employeeTable`).append(`
-        <tr>
-                <td>${person.firstName}</td>
-                <td>${person.lastName}</td>
-                <td>${person.empNumber}</td>
-                <td>${person.title}</td>
-                <td>${person.salary}</td>
-            </tr>
-        `)
+function warningRed() {
+    if (Number(totalRunningCost > 20000)){
+$('#totalCost').toggleClass('warning');
     }
-    $(`input`).val('');
+}
+
+
+//***Note: potentially refactor addEmployee to call separate "appendTable"
+// function appendTable() {
+//     //for (let person of staff) {
+//     $(`#employ`eeTable`).append(`
+//         <tr>
+//                 <td>${firstName}</td>
+//                 <td>${person.lastName}</td>
+//                 <td>${person.empNumber}</td>
+//                 <td>${person.title}</td>
+//                 <td>${person.salary}</td>
+//                 <td>
+//                 <button id="deleteBtn"> Remove Employee </button>
+//                 </td>
+//             </tr>
+//         `)
+//     //}
+//     $(`input`).val('');
+// }
+
+
+
+function deleteEmployee() {
+    $(this).closest('tr').empty();
+    console.log('in deleteBtn');
+
 }

@@ -28,7 +28,7 @@
         <input id= "salary" type="text" placeholder="Annual Salary">
         <button id="addEmployeeBtn">Click to add</button>
     </section>
-    <table>
+    <table class="table table-hover table-bordered">
         <thead>
             <tr>
                 <th>First Name</th>
@@ -36,12 +36,17 @@
                 <th>Employee Number</th>
                 <th>Title</th>
                 <th>Salary</th>
+                <!-- <th>can add this column or not, seems irrelevant</th> -->
             </tr>
         </thead>
-        <tbody id="employeeTable">
+        <tbody class="table-striped" id="employeeTable">
             <!-- data here -->
+            <tr>
+                <td></td>
+            </tr>
         </tbody>
     </table>
+    <p class="totalText">The total monthly cost is <span id="totalCost"></span></p>
 
 </div>
 
