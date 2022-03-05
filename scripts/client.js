@@ -40,7 +40,9 @@ function addEmployee() {
             
             `)
     $(`input`).val('');
-    $(`#totalCost`).append(totalRunningCost += Number(salary));
+    totalRunningCost = Number(totalRunningCost) + Number(salary);
+    $(`#totalCost`).empty();
+    $(`#totalCost`).append(totalRunningCost);
     warningRed();
 
     //research button ".data()"...to help update the salary?
