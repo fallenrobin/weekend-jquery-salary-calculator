@@ -41,7 +41,7 @@ function addEmployee() {
                 <td>${title}</td>
                 <td>${makeDollars.format(salary)}</td>
                 <td>
-                <button id="deleteBtn"> Remove Employee </button>
+                <button class="btn btn-secondary" id="deleteBtn"> Remove Employee </button>
                 </td>
             </tr>
             `)
@@ -65,7 +65,7 @@ function storeData() {
 
 let totalMonthlyCost = 0;
 let currentSalary = 0;//being populated from inside addEmployee
-
+let accumulatedSalary = 0;
 
 function appendMonthlyCost() {
     //console.log('in appendMonthlyCost');
@@ -73,7 +73,8 @@ function appendMonthlyCost() {
     $(`#monthlyCostSpan`).empty();
     // $(`#monthlyCostSpan`).removeClass('.noSalary');
     // $(`#monthlyCostSpan`).addClass('.yesSalary');
-    $(`#monthlyCostSpan`).append(makeDollars.format(totalMonthlyCost));
+    accumulatedSalary += totalMonthlyCost;
+    $(`#monthlyCostSpan`).append(makeDollars.format(accumulatedSalary));
     currentSalary = 0;
     warningRed();
 }

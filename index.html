@@ -14,10 +14,10 @@
     <link rel="stylesheet" href="styles/style.css">
 
 </head>
-<header>Salary Calculator</header>
+<header><h1>Salary Calculator</h1></header>
 
 <body>
-    <div>Add Employee</div>
+    <div><h3>Add Employee</h3></div>
     <section id=inputArea>
         <input class= "field" id= "firstName" type="text" placeholder="First Name">
         <input class= "field" id= "lastName" type="text" placeholder="Last Name">
@@ -26,7 +26,7 @@
         <input id= "title" type="text" placeholder="Job Title">
         <!-- stretch: figure out how to have job titles in drop down list -->
         <input id= "salary" type="text" placeholder="Annual Salary">
-        <button id="addEmployeeBtn">Click to add</button>
+        <button class="btn btn-info" id="addEmployeeBtn">Click to add</button>
     </section>
     <table class="table table-hover table-bordered">
         <thead>
@@ -40,10 +40,7 @@
             </tr>
         </thead>
         <tbody class="table-striped" id="employeeTable">
-            <!-- data here -->
-            <tr>
-                <td></td>
-            </tr>
+            <!-- data appends here -->
         </tbody>
     </table>
     <p class="totalText">The monthly total cost is: <span id="monthlyCostSpan">enter data</span></p>
