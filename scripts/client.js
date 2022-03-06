@@ -41,7 +41,7 @@ function addEmployee() {
                 <td>${title}</td>
                 <td>${makeDollars.format(salary)}</td>
                 <td>
-                <button class="btn btn-secondary" id="deleteBtn"> Remove Employee </button>
+                <button id="deleteBtn"> Remove Employee </button>
                 </td>
             </tr>
             `)
