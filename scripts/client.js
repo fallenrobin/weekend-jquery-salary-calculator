@@ -29,7 +29,7 @@ function addEmployee() {
         empNumber: empNumber,
         title: title,
         salary: salary
-    }//research: button ".data()" to help update the salary?
+    }
     staff.push(empObject);
     currentSalary += salary;
 
@@ -48,7 +48,6 @@ function addEmployee() {
 
     $(`input`).val('');
     appendMonthlyCost();
-    //storeData, or something else
 }
 
 
@@ -60,8 +59,8 @@ function appendMonthlyCost() {
     //console.log('in appendMonthlyCost');
     totalMonthlyCost = (currentSalary / 12);
     $(`#monthlyCostSpan`).empty();
-    // $(`#monthlyCostSpan`).removeClass('.noSalary');
-    // $(`#monthlyCostSpan`).addClass('.yesSalary');
+    // $(`#monthlyCostSpan`).removeClass('.noSalary');//this idea didn't pan out, see below
+    // $(`#monthlyCostSpan`).addClass('.yesSalary');//this idea didn't pan out, see below
     accumulatedSalary += totalMonthlyCost;
     $(`#monthlyCostSpan`).append(makeDollars.format(accumulatedSalary));
     currentSalary = 0;
@@ -84,27 +83,9 @@ $('#monthlyCostSpan').text(makeDollars.format(accumulatedSalary));
 }
 
 
-//***Note: potentially refactor addEmployee to call separate "appendTable"?
-// function appendTable() {
-//     //for (let person of staff) {
-//     $(`#employeeTable`).append(`
-//         <tr>
-//                 <td>${firstName}</td>
-//                 <td>${person.lastName}</td>
-//                 <td>${person.empNumber}</td>
-//                 <td>${person.title}</td>
-//                 <td>${person.salary}</td>
-//                 <td>
-//                 <button id="deleteBtn"> Remove Employee </button>
-//                 </td>
-//             </tr>
-//         `)
-//     //}
-//     $(`input`).val('');
-// }
 
 //the version below toggles between no formatting and "noSalary", 
-//but does not activate "yesSalary"
+//but does not activate "yesSalary"... also suspect it's overridden by BS table styling
 
 // totalMonthlyCost = ((salary + totalMonthlyCost) / 12);
 //     $(`#monthlyCostSpan`).empty();
@@ -116,7 +97,8 @@ $('#monthlyCostSpan').text(makeDollars.format(accumulatedSalary));
 //         $('#monthlyCostSpan').toggleClass('yesSalary');
 //     }
 
-//this version toggles between "noSalary" and "yesSalary" (conditional didn't affect it)
+//this version just toggles between "noSalary" and "yesSalary" (conditional didn't affect it)
+//... also suspect it's overridden by BS table styling
 // if ($('#monthlyCostSpan').val() === 0 || $('#monthlyCostSpan').val() === undefined) {
 //     $('#monthlyCostSpan').toggleClass('noSalary');
 // }
