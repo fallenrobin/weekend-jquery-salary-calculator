@@ -3,10 +3,18 @@ input {
     border-radius: 4px;
 }
 
+body {
+    background-color: seashell;
+}
+
+#title {
+    text-align: center;
+}
+
 #deleteBtn {
     background-color: gray;
     display: inline-block;
-    font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
     line-height: 1.5;
     color: #f2f5f8;
@@ -20,25 +28,13 @@ input {
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
 
-#deleteBtn:hover{
+#deleteBtn:hover {
     background-color: rgb(90, 83, 83);
 
 }
 
 .warning {
     /* background-color: crimson; */
-    /* the background color stopped working presumably because overridden by table styling? */
+    /* the background color stopped working presumably because overridden by BS table styling?? */
     color: red;
-}
-
-.noSalary {
-    background-color: thistle;
-    color: darkolivegreen;
-    font-style: italic;
-}
-
-.yesSalary {
-    background-color: greenyellow;
-    font-weight: bold;
-    color: black;
 }

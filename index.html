@@ -14,19 +14,25 @@
     <link rel="stylesheet" href="styles/style.css">
 
 </head>
-<header><h1>Salary Calculator</h1></header>
+<header id="title">
+    <h1>Salary Calculator</h1>
+</header>
 
 <body>
-    <div><h3>Add Employee</h3></div>
+    <div>
+        <h3>Add Employee</h3>
+    </div>
     <section id=inputArea>
-        <input class= "field" id= "firstName" type="text" placeholder="First Name">
-        <input class= "field" id= "lastName" type="text" placeholder="Last Name">
+        <input id="firstName" type="text" placeholder="First Name">
+        <input id="lastName" type="text" placeholder="Last Name">
         <!-- Source for employee number solution: https://stackoverflow.com/questions/18510845/maxlength-ignored-for-input-type-number-in-chrome -->
         <!-- <input id="empNumber" type="text" maxlength="4" placeholder="Employee Number"/>doesn't work-->
         <!-- <input type="tel" maxlength="4" id="empNumber" placeholder="Employee Number">doesn't work-->
-        <input id= "title" type="text" placeholder="Job Title">
+        <input id="title" type="text" placeholder="Job Title- why broken?!">
+        <input id="empNumber" type="number" pattern="/^-?\d+\.?\d*$/" placeholder="Employee Number"
+            onKeyPress="if(this.value.length==4) return false;">
         <!-- too tricky for now: drop down list for job titles-->
-        <input id= "salary" type="number" placeholder="Annual Salary">
+        <input id="salary" type="number" placeholder="Annual Salary">
         <a class="btn btn-info" id="addEmployeeBtn">Click to add</a>
     </section>
     <table class="table table-hover table-bordered table-striped">
@@ -34,8 +40,8 @@
             <tr>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Employee Number</th>
                 <th>Title</th>
+                <th>Employee Number</th>
                 <th>Annual Salary</th>
                 <!-- <th>can add this column or not, seems irrelevant</th> -->
             </tr>
@@ -53,9 +59,6 @@
             <!-- data appends here -->
         </tbody>
     </table>
-    <p class="totalText"></p>
-
-</div>
 
 </body>
 

@@ -16,18 +16,17 @@ const makeDollars = new Intl.NumberFormat('en-US', {
 
 function addEmployee() {
 
-
     let firstName = $(`#firstName`).val();
     let lastName = $(`#lastName`).val();
-    let empNumber = $(`#empNumber`).val();
     let title = $(`#title`).val();
+    let empNumber = $(`#empNumber`).val();
     let salary = $(`#salary`).val();
 
     let empObject = {
         firstName: firstName,
         lastName: lastName,
-        empNumber: empNumber,
         title: title,
+        empNumber: empNumber,
         salary: salary
     }
     staff.push(empObject);
@@ -37,17 +36,20 @@ function addEmployee() {
             <tr>
                 <td>${firstName}</td>
                 <td>${lastName}</td>
+                <td>${$(`#title`).val()}</td>
                 <td>${empNumber}</td>
-                <td>${title}</td>
                 <td class="targetSalary" >${salary}</td>
                 <td>
                 <button id="deleteBtn"> Remove Employee </button>
                 </td>
             </tr>
-            `)
+            `);//in line 39 I tried to get around the "title" variable thinking it might fix it, but it still doesn't work
+
+            console.log(title);//trying to troubleshoot
+            
 
     $(`input`).val('');
-    appendMonthlyCost();
+    updateMonthlyCost();
 }
 
 
@@ -55,7 +57,8 @@ let totalMonthlyCost = 0;
 let currentSalary = 0;//being populated from inside addEmployee
 let accumulatedSalary = 0;
 
-function appendMonthlyCost() {
+
+function updateMonthlyCost() {
     //console.log('in appendMonthlyCost');
     totalMonthlyCost = (currentSalary / 12);
     $(`#monthlyCostSpan`).empty();
@@ -69,17 +72,20 @@ function appendMonthlyCost() {
 
 function warningRed() {
     //console.log('in warningRed');
-    if (totalMonthlyCost > 20000) {
-        $('#monthlyCostSpan').toggleClass('warning');
+    if (Number(accumulatedSalary) > 20000) {
+        $('#monthlyCostSpan').addClass('warning');
+    }
+    if (Number(accumulatedSalary) < 20000) {
+        $('#monthlyCostSpan').removeClass('warning');
     }
 }
 
 function deleteEmployee() {
-let obsolete = Number($(this).parent().prev('.targetSalary').text());
-accumulatedSalary = accumulatedSalary - (obsolete/12);
-$('#monthlyCostSpan').text(makeDollars.format(accumulatedSalary));
-   $(this).closest('tr').empty();
-   warningRed()
+    let obsolete = Number($(this).parent().prev('.targetSalary').text());
+    accumulatedSalary = accumulatedSalary - (obsolete / 12);
+    $('#monthlyCostSpan').text(makeDollars.format(accumulatedSalary));
+    $(this).closest('tr').empty();
+    warningRed()
 }
 
 
