@@ -2,3 +2,15 @@
     background-color: crimson;
     color: yellow;
 }
+
+.noSalary {
+    background-color: thistle;
+    color: darkolivegreen;
+    font-style: italic;
+}
+
+.yesSalary {
+    background-color: greenyellow;
+    font-weight: bold;
+    color: black;
+}
