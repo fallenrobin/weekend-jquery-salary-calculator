@@ -33,7 +33,7 @@ function addEmployee() {
     staff.push(empObject);
     currentSalary += salary;
 
-    $(`#employeeTable`).append(`
+    $(`#employeeTable`).prepend(`
             <tr>
                 <td>${firstName}</td>
                 <td>${lastName}</td>
@@ -48,6 +48,7 @@ function addEmployee() {
 
     $(`input`).val('');
     appendMonthlyCost();
+    //storeData, or something else
 }
 
 function storeData() {
@@ -88,6 +89,7 @@ function warningRed() {
 
 function deleteEmployee() {
     $(this).closest('tr').empty();
+    //removeSalary();
 }
 
 function removeSalary() {
