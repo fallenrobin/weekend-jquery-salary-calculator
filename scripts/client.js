@@ -1,6 +1,6 @@
 $(readyNow);
 function readyNow() {
-    $(`#addEmployeeBtn`).on(`click`, addEmployee);//, storeData`
+    $(`#addEmployeeBtn`).on(`click`, addEmployee);//, storeData
     $(`tbody`).on(`click`, '#deleteBtn', deleteEmployee);//, removeSalary
     // $(`#deleteBtn`).on(`click`, deleteEmployee); //wrong! The button doesn't exist yet and can't be targeted.
 }
