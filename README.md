@@ -26,7 +26,9 @@ I integrated functions of deleteEmployee with the action of subtracting their sa
 
 ## Screen Shot
 
-Include one or two screen shots of your project here (optional). Remove if unused.
+![Alt text](images/image2.png)
+![Alt text](images/image1.png)
+
 
 
 
