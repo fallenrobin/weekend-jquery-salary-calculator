@@ -39,7 +39,7 @@ function addEmployee() {
                 <td>${lastName}</td>
                 <td>${empNumber}</td>
                 <td>${title}</td>
-                <td>${makeDollars.format(salary)}</td>
+                <td class="targetSalary" >${salary}</td>
                 <td>
                 <button id="deleteBtn"> Remove Employee </button>
                 </td>
@@ -51,18 +51,6 @@ function addEmployee() {
     //storeData, or something else
 }
 
-function storeData() {
-    // $(document).ready(function(){
-    //     testObj = new Object();
-    //     testObj.greetingMorn = "Good Morning!";
-    //     testObj.greetingEve = "Good Evening!";
-    //     $("#btn1").click(function(){
-    //       $("div").data(testObj);
-    //     });
-    //     $("#btn2").click(function(){
-    //       alert($("div").data("greetingEve"));
-    //     });
-}
 
 let totalMonthlyCost = 0;
 let currentSalary = 0;//being populated from inside addEmployee
@@ -88,21 +76,11 @@ function warningRed() {
 }
 
 function deleteEmployee() {
-    $(this).closest('tr').empty();
-    //removeSalary();
-}
-
-function removeSalary() {
-    // $(document).ready(function(){
-    //     testObj = new Object();
-    //     testObj.greetingMorn = "Good Morning!";
-    //     testObj.greetingEve = "Good Evening!";
-    //     $("#btn1").click(function(){
-    //       $("div").data(testObj);
-    //     });
-    //     $("#btn2").click(function(){
-    //       alert($("div").data("greetingEve"));
-    //     });
+let obsolete = Number($(this).parent().prev('.targetSalary').text());
+accumulatedSalary = accumulatedSalary - (obsolete/12);
+$('#monthlyCostSpan').text(makeDollars.format(accumulatedSalary));
+   $(this).closest('tr').empty();
+   warningRed()
 }
 
 
