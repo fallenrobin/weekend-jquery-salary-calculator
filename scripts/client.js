@@ -36,7 +36,7 @@ function addEmployee() {
             <tr>
                 <td>${firstName}</td>
                 <td>${lastName}</td>
-                <td>${$(`#title`).val()}</td>
+                <td>${title}</td>
                 <td>${empNumber}</td>
                 <td class="targetSalary" >${salary}</td>
                 <td>
